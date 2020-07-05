@@ -212,6 +212,7 @@ import firebase from "firebase/app"
 import { fb } from "~/helpers/fb"
 
 export default {
+  middleware: "authenticated",
   components: {
     "pw-section": () => import("~/components/layout/section"),
     "pw-toggle": () => import("~/components/ui/toggle"),

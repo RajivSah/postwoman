@@ -28,6 +28,9 @@ export const routerBase =
         },
       }
 export default {
+  router: {
+    middleware: "login",
+  },
   mode: "spa",
   /*
    ** Headers of the page

@@ -24,11 +24,15 @@ export default {
       firebase
         .auth()
         .signOut()
+        .then((t) => {
+          this.$store.commit("postwoman/logOut")
+        })
         .catch((err) => {
           self.$toast.show(err.message || err, {
             icon: "error",
           })
         })
+      this.$router.push("/login")
       self.$toast.info(this.$t("logged_out"), {
         icon: "vpn_key",
       })

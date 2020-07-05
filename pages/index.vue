@@ -1408,6 +1408,7 @@ const parseHeaders = (xhr) => {
 export const findStatusGroup = (responseStatus) =>
   statusCategories.find(({ statusCodeRegex }) => statusCodeRegex.test(responseStatus))
 export default {
+  middleware: "authenticated",
   directives: {
     textareaAutoHeight,
   },

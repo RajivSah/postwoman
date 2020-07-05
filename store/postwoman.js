@@ -72,6 +72,7 @@ export const SETTINGS_KEYS = [
 ]
 
 export const state = () => ({
+  user: {},
   settings: {},
   collections: [
     {
@@ -91,7 +92,22 @@ export const state = () => ({
   editingRequest: {},
 })
 
+export const actions = {
+  logOut: ({ commit }) => commit("logOut"),
+  setUser: ({ commit }, user) => commit("setUser", user),
+}
+
+export const getters = {
+  user: (state) => state.user,
+}
+
 export const mutations = {
+  logOut(state) {
+    state.user = null
+  },
+  setUser(state, user) {
+    state.user = user
+  },
   applySetting({ settings }, setting) {
     if (setting === null || !(setting instanceof Array) || setting.length !== 2) {
       throw new Error("You must provide a setting (array in the form [key, value])")
